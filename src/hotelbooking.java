@@ -62,3 +62,12 @@ public class HotelManager {
         rooms.add(room);
     }
 }
+
+public void showAvailableRooms() {
+    System.out.println("Available Rooms:");
+    for (Room r : rooms) {
+        if (!r.isBooked()) {
+            System.out.println("Room ID: " + r.getRoomId());
+        }
+    }
+}
