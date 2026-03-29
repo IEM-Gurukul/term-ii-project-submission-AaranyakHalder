@@ -71,3 +71,15 @@ public void showAvailableRooms() {
         }
     }
 }
+
+public void bookRoom(int roomId, Customer customer) {
+    for (Room r : rooms) {
+        if (r.getRoomId() == roomId && !r.isBooked()) {
+            r.bookRoom();
+            bookings.add(new Booking(customer, r));
+            System.out.println("Room booked successfully!");
+            return;
+        }
+    }
+    System.out.println("Room not available!");
+}
