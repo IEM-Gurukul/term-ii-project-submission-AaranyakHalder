@@ -108,3 +108,54 @@ public void showBookings() {
         b.showBooking();
     }
 }
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        HotelManager hm = new HotelManager();
+        Scanner sc = new Scanner(System.in);
+
+        // Add sample rooms
+        hm.addRoom(new Room(101));
+        hm.addRoom(new Room(102));
+
+        while (true) {
+            System.out.println("\n1. Show Rooms");
+            System.out.println("2. Book Room");
+            System.out.println("3. Cancel Booking");
+            System.out.println("4. Show Bookings");
+            System.out.println("5. Exit");
+
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1:
+                    hm.showAvailableRooms();
+                    break;
+
+                case 2:
+                    System.out.print("Enter Room ID: ");
+                    int rId = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter Customer Name: ");
+                    String name = sc.nextLine();
+
+                    Customer c = new Customer(rId, name);
+                    hm.bookRoom(rId, c);
+                    break;
+
+                case 3:
+                    System.out.print("Enter Room ID: ");
+                    hm.cancelBooking(sc.nextInt());
+                    break;
+
+                case 4:
+                    hm.showBookings();
+                    break;
+
+                case 5:
+                    System.exit(0);
+            }
+        }
+    }
+}
