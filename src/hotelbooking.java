@@ -23,3 +23,42 @@ public class Room {
         isBooked = false;
     }
 }
+
+public class Customer {
+    private int id;
+    private String name;
+
+    public Customer(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public int getId() { return id; }
+    public String getName() { return name; }
+}
+
+public class Booking {
+    private Customer customer;
+    private Room room;
+
+    public Booking(Customer customer, Room room) {
+        this.customer = customer;
+        this.room = room;
+    }
+
+    public void showBooking() {
+        System.out.println("Customer: " + customer.getName() +
+                " | Room: " + room.getRoomId());
+    }
+}
+
+import java.util.*;
+
+public class HotelManager {
+    private List<Room> rooms = new ArrayList<>();
+    private List<Booking> bookings = new ArrayList<>();
+
+    public void addRoom(Room room) {
+        rooms.add(room);
+    }
+}
