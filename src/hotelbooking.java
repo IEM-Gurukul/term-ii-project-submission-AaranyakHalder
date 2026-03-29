@@ -83,3 +83,19 @@ public void bookRoom(int roomId, Customer customer) {
     }
     System.out.println("Room not available!");
 }
+
+public void cancelBooking(int roomId) {
+    for (Booking b : bookings) {
+        if (b != null) {
+            Room r = b.room;
+            if (r.getRoomId() == roomId) {
+                r.freeRoom();
+                bookings.remove(b);
+                System.out.println("Booking cancelled!");
+                return;
+            }
+        }
+    }
+    System.out.println("Booking not found!");
+}
+
