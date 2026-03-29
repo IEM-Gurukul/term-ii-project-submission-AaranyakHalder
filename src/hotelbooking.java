@@ -98,4 +98,13 @@ public void cancelBooking(int roomId) {
     }
     System.out.println("Booking not found!");
 }
+public void showBookings() {
+    if (bookings.isEmpty()) {
+        System.out.println("No bookings found.");
+        return;
+    }
 
+    for (Booking b : bookings) {
+        b.showBooking();
+    }
+}
